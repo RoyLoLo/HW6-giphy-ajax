@@ -50,9 +50,9 @@ $(document).on("click","button",function(){
             }//end of j for loop
     })//end of ajax
 })//end of click event for animal buttons
-//why wont this work??
+
 $(document).on("click","img",function(){
-    console.log("fjkdaslfjdklas;");
+    
     if($(this).attr("data-state") === "still"){
          var k = $(this).attr("objnumb");
         $(this).attr("src",results[k].images.original.url);
