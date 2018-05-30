@@ -41,8 +41,9 @@ $(document).on("click","button",function(){
             var animalImage = $("<img>");
             var imageRating = $("<p>").text("Rating: " +results[j].rating);
             animalImage.attr("data-state", "still")
-            animalImage.attr("objnumb", j);
-            animalImage.attr("src", results[j].images.original_still.url);
+            animalImage.attr("data-still", results[j].images.original_still.url);
+            animalImage.attr("data-animate",results[j].images.original.url);
+            animalImage.attr("src",results[j].images.original_still.url);
             animalDiv.append(animalName);
             animalDiv.append(animalImage);
             animalDiv.append(imageRating);
@@ -52,15 +53,12 @@ $(document).on("click","button",function(){
 })//end of click event for animal buttons
 
 $(document).on("click","img",function(){
-    
     if($(this).attr("data-state") === "still"){
-         var k = $(this).attr("objnumb");
-        $(this).attr("src",results[k].images.original.url);
+        $(this).attr("src",$(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
     } //end if
     else{
-        var k = $(this).attr("objnumb");
-        $(this).attr("src",results[k].images.original_still.url);
+        $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }; //end else
 }) //end of click that toggles still to animated
