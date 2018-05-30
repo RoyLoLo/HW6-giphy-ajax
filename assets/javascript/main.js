@@ -30,7 +30,7 @@ $(document).on("click","button",function(){
     var animal = $(this).attr("data-animalName");   
     var limit = 3;
     $.ajax({
-        url : "http://api.giphy.com/v1/gifs/search?api_key=WHtWS1h7uRkU7mtHp9SUkLUTw7pRzAQ9&limit=" + limit + "&q=" + animal,
+        url : "https://api.giphy.com/v1/gifs/search?api_key=WHtWS1h7uRkU7mtHp9SUkLUTw7pRzAQ9&limit=" + limit + "&q=" + animal,
         method : "GET"
     }).then(function(response){
             results = response.data;
