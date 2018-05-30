@@ -15,7 +15,7 @@ function addbutton(){
 
 addbutton();
 
-$("#addAnimal").on("click", function(){
+$("#addAnimal").on("click",function(){
     event.preventDefault();
     var newanimal = $("#animalInput").val();
     if (animalArray.indexOf(newanimal) === -1){
@@ -39,24 +39,30 @@ $(document).on("click","button",function(){
             var animalDiv = $("<div>");
             var animalName = $("<h3>").text("This is the: " +animal);
             var animalImage = $("<img>");
-            animalImage.attr("state", "still")
-            animalImage.attr("src", results[j].images.original_still.url );
+            var imageRating = $("<p>").text("Rating: " +results[j].rating);
+            animalImage.attr("data-state", "still")
+            animalImage.attr("objnumb", j);
+            animalImage.attr("src", results[j].images.original_still.url);
             animalDiv.append(animalName);
             animalDiv.append(animalImage);
+            animalDiv.append(imageRating);
             $("#animalGIFsGoHere").prepend(animalDiv);
             }//end of j for loop
     })//end of ajax
 })//end of click event for animal buttons
-
-$("img").on("click", function(){
-
-    if($(this).attr("data-state" === "still")){
-    //set attr to results[].original.url and 
-    //$(this).attr("data-state", "animate");
+//why wont this work??
+$(".gif").on("click",function(){
+    console.log("fjkdaslfjdklas;");
+    if($(this).attr("data-state") === "still"){
+         var k = $(this).attr("objnumb");
+        $(this).attr("src","results["+ k +"].images.original.url")
+        $(this).attr("data-state", "animate");
     } //end if
     else{
-    //set attr to results[].original_still.url
-    //$(this).attr("data-state", "still");
+        var k = $(this).attr("objnumb");
+        $(this).attr("src","results["+ k +"].images.original_still.url")
+        $(this).attr("data-state", "still");
     }; //end else
 }) //end of click that toggles still to animated
 
+//why am I getting an error in the console log when i click an animal button
