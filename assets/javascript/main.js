@@ -51,16 +51,16 @@ $(document).on("click","button",function(){
     })//end of ajax
 })//end of click event for animal buttons
 //why wont this work??
-$(".gif").on("click",function(){
+$(document).on("click","img",function(){
     console.log("fjkdaslfjdklas;");
     if($(this).attr("data-state") === "still"){
          var k = $(this).attr("objnumb");
-        $(this).attr("src","results["+ k +"].images.original.url")
+        $(this).attr("src",results[k].images.original.url);
         $(this).attr("data-state", "animate");
     } //end if
     else{
         var k = $(this).attr("objnumb");
-        $(this).attr("src","results["+ k +"].images.original_still.url")
+        $(this).attr("src",results[k].images.original_still.url);
         $(this).attr("data-state", "still");
     }; //end else
 }) //end of click that toggles still to animated
