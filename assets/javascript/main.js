@@ -35,7 +35,7 @@ $(document).on("click","button",function(){
     }).then(function(response){
             results = response.data;
             //   This for loop adds the images
-            for (j=0; j , results.length; j++){
+            for (j=0; j < results.length; j++){
             var animalDiv = $("<div>");
             var animalName = $("<h3>").text("This is the: " +animal);
             var animalImage = $("<img>");
@@ -65,4 +65,3 @@ $(document).on("click","img",function(){
     }; //end else
 }) //end of click that toggles still to animated
 
-//why am I getting an error in the console log when i click an animal button
