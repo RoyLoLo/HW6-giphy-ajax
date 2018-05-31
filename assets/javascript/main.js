@@ -18,8 +18,9 @@ addbutton();
 $("#addAnimal").on("click",function(){
     event.preventDefault();
     var newanimal = $("#animalInput").val();
-    if (animalArray.indexOf(newanimal) === -1){
+    if (animalArray.indexOf(newanimal) === -1 && newanimal !== ""){
     animalArray.push(newanimal);
+    $("form").trigger("reset");
     addbutton();
     };//end of if that will only add button if animal has not been added already
 })//end of click event for add animals button
